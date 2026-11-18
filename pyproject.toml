@@ -1,0 +1,29 @@
+[project]
+name = "gcpay-mcp"
+version = "1.1.0"
+description = "Connect GCPay to Claude Code, ChatGPT and any AI agent through Cotlet.dev, a hosted MCP server. No GCPay API key needed."
+readme = "README.md"
+license = "Elastic-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Cotlet.dev", email = "contact@cotlet.dev" }]
+keywords = ["gcpay", "gcpay api", "gcpay mcp", "mcp server", "claude", "chatgpt", "ai agent", "cotlet"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Office/Business"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://cotlet.dev/integrations/gcpay-api-mcp-server?utm_source=pypi&utm_medium=package&utm_campaign=gcpay"
+Source = "https://github.com/cotlet-connect/gcpay-mcp"
+
+[project.scripts]
+gcpay-mcp = "gcpay_agent:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel.force-include]
+"gcpay_agent.py" = "gcpay_agent.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["gcpay_agent.py", "README.md", "LICENSE", "mcp.json", "Dockerfile", "glama.json", "skills", "examples", ".cursor"]
